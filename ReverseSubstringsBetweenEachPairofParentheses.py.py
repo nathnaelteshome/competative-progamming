@@ -16,4 +16,5 @@ def reverseParentheses(s):
     return "".join(stack1)
 
 
-# print(reverseParentheses("(ed(et(oc))el)"))
+print(reverseParentheses("a(bcdefghijkl(mno)p)q"))
+# s =
