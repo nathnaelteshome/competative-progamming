@@ -1,0 +1,1 @@
+print('dhfdhjfd'[:-1:])
