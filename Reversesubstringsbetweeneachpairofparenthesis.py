@@ -26,6 +26,6 @@ def solution(s: string):
 
 s = "(abcd)"
 s = "(u(love)i)"
-s = "a(bcdefghijkl(mno)p)q"
+# s = "a(bcdefghijkl(mno)p)q"
 
 print(solution(s))

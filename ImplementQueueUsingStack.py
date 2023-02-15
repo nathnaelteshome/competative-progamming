@@ -26,12 +26,12 @@ class MyQueue:
         return not self.stack1
 
 
-# obj = MyQueue()
-# obj.push(5)
-# print(obj.stack1)
-# param_2 = obj.pop()
-# print("param_2", obj.stack1)
-# param_3 = obj.peek()
-# print("peeked", param_3)
-# param_4 = obj.empty()
-# print("isEmpty", param_4)
+obj = MyQueue()
+obj.push(5)
+print(obj.stack1)
+param_2 = obj.pop()
+print("param_2", obj.stack1)
+param_3 = obj.peek()
+print("peeked", param_3)
+param_4 = obj.empty()
+print("isEmpty", param_4)

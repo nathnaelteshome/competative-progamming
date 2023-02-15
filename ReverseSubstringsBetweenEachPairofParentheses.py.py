@@ -16,5 +16,7 @@ def reverseParentheses(s):
     return "".join(stack1)
 
 
-print(reverseParentheses("a(bcdefghijkl(mno)p)q"))
-# s =
+s = "(abcd)"
+s = "(u(love)i)"
+s = "a(bcdefghijkl(mno)p)q"
+print(reverseParentheses(s))
