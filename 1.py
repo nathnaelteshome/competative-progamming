@@ -1,4 +1,4 @@
-title = "Mod Power"
+title = "String Split And Join"
 
 arr = title.split(" ")
 res = ""
