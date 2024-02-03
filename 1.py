@@ -1,4 +1,4 @@
-title = "Find The Difference"
+title = "Defanging an IP Address"
 
 arr = title.split(" ")
 res = ""
