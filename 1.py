@@ -1,4 +1,4 @@
-title = "Final value of variable performing operations"
+title = "Decrypt String from Alphabet to Integer Mapping"
 
 arr = title.split(" ")
 res = ""
