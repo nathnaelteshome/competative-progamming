@@ -1,4 +1,4 @@
-title = "Nested Lists"
+title = "Check If Two String Arrays are Equivalent"
 
 arr = title.split(" ")
 res = ""
