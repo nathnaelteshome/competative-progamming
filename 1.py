@@ -1,4 +1,4 @@
-title = "Max Consecutive Ones"
+title = "Find Three Consecutive Integers That Sum to a Given Number"
 
 arr = title.split(" ")
 res = ""
