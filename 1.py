@@ -1,4 +1,4 @@
-title = "Check If Two String Arrays are Equivalent"
+title = "Max Consecutive Ones"
 
 arr = title.split(" ")
 res = ""
