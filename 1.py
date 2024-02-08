@@ -1,4 +1,4 @@
-title = "Find ThreenotConsecutive Integers That Sum to a Given Number"
+title = "Contains Duplicate"
 
 arr = title.split(" ")
 res = ""
