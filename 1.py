@@ -1,4 +1,4 @@
-title = "Find ThreeConsecutive Integers That Sum to a Given Number"
+title = "Find ThreenotConsecutive Integers That Sum to a Given Number"
 
 arr = title.split(" ")
 res = ""
