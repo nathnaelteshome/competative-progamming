@@ -1,4 +1,4 @@
-title = "Contains Duplicate"
+title = "Missing Number"
 
 arr = title.split(" ")
 res = ""
