@@ -1,16 +1,13 @@
-def checkPossibility(nums):
-        for i in range(1, len(nums)):
-            if nums[i-1] > nums[i]:
-                num = nums[i]
-                nums.pop(i)
-                if nums == sorted(nums):
-                    return True
-                nums.insert(i,num)
-                nums.pop(i-1)
-                if nums == sorted(nums):
-                    return True
-                else:
-                    return False
+class Solution:
+    def rearrangeArray(self, nums: List[int]) -> List[int]:
+        postive_list = [num for num in nums if num > 0]
+        negative_list = [num for num in nums if num < 0]
+        output = []
+        
+        for i in range(len(nums)//2):
+            output.append(postive_list[i])
+            output.append(negative_list[i])
 
-nums = [4,2,3]
-print(checkPossibility(nums))
+        return output
+
+        

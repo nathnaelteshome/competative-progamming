@@ -1,4 +1,4 @@
-title = "Conveyor Belts"
+title = "Partition Array According to Given Pivot"
 
 arr = title.split(" ")
 res = ""
