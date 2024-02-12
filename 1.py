@@ -1,4 +1,4 @@
-title = "Partition Array According to Given Pivot"
+title = "Minimum Number of Operations to Move All Balls to Each Box "
 
 arr = title.split(" ")
 res = ""
