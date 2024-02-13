@@ -1,4 +1,4 @@
-title = "Minimum Number of Operations to Move All Balls to Each Box "
+title = "Card Flipping Game"
 
 arr = title.split(" ")
 res = ""
