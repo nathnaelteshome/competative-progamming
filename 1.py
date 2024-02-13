@@ -1,4 +1,4 @@
-title = "Card Flipping Game"
+title = "Two Sum"
 
 arr = title.split(" ")
 res = ""
