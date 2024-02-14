@@ -1,4 +1,4 @@
-title = "Two Sum"
+title = "Two  Sum"
 
 arr = title.split(" ")
 res = ""
