@@ -1,0 +1,2 @@
+n, target = int(input())
+
