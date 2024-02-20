@@ -13,8 +13,8 @@ diag2 = set([row1[2], row2[1], row3[0]])
 all_set = [set(row1), set(row2), set(row3), col1, col2, col3, diag1, diag2]
 
 
-single_winner = len({next(iter(x)) for x in all_set if len(x) == 1})
-team_winner = len({"".join(sorted(x)) for x in all_set if len(x) == 2})
+single_winner = {next(iter(x)) for x in all_set if len(x) == 1}
+team_winner = {"".join(sorted(x)) for x in all_set if len(x) == 2}
 
 
 print(single_winner)

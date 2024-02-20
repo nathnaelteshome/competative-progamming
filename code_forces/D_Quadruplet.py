@@ -1,43 +1,30 @@
 n, target = [int(x) for x in input().split()]
-
 arr = [int(x) for x in input().split()]
 
-[1,1,2,4]
+# [1,1,2,4]
 def findFour(arr , n, target):
+    auxilaryArr = []
     for i in range(n):
         for j in range(i + 1, n):
-            for k in range(j + 1, n):
-                for l in range(k + 1, n):
-                    if arr[i] + arr[j] + arr[k] + arr[l] == target:
-                        print(i + 1, j + 1, k + 1, l + 1)
-                        return
-                        # break
-                    
+           auxilaryArr.append([arr[i] + arr[j], i ,j])
+    
+    auxilaryArr.sort(key= lambda x: x[0])
+    l = 0
+    r = len(auxilaryArr) - 1
+    while l < r:
+        if auxilaryArr[l][0] + auxilaryArr[r][0]== target:
+            indices = [auxilaryArr[l][1] + 1, auxilaryArr[l][2] + 1, auxilaryArr[r][1] + 1, auxilaryArr[r][2] + 1]
+            if len(set(indices)) == 4:
+                for i in indices:
+                    print(i, end=" ")
+                return
+        elif auxilaryArr[l][0] + auxilaryArr[r][0] < target:
+            l += 1
+        elif auxilaryArr[l][0] + auxilaryArr[r][0] > target:
+            r -= 1
     print("IMPOSSIBLE")
+
     
 
 findFour(arr, n, target)
     
-
-
-
-# arr.sort()
-# window = arr[:4]
-# summation = sum(window)
-# if summation == target:
-#         for i in arr:
-#             print(i,end=" ")
-        
-# l, r  =  0, 4
-# print(arr, window)
-# while r < n:
-#     summation -= arr[l]
-#     summation += arr[r]
-#     l += 1
-#     r += 1
-#     if summation == target:
-#         for i in arr:
-#             print(i,end=" ")
-#         break
-
-
