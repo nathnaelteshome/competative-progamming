@@ -1,4 +1,4 @@
-title = "Find the Winner of the Circular Game"
+title = "Reverse String"
 
 arr = title.split(" ")
 res = ""
