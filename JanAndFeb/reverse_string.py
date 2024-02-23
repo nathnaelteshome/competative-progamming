@@ -1,7 +1,3 @@
-class Solution:
-    def reverseString(self, s: List[str]) -> None:
-        s.reverse()
-        """
-        Do not return anything, modify s in-place instead.
-        """
-        
+nums = [[0]] * 5
+nums[0][0] = [23]
+print(nums)
