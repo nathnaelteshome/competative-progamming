@@ -1,4 +1,4 @@
-title = "Transpose Matrix"
+title = "Diagonal Traverse"
 
 arr = title.split(" ")
 res = ""
