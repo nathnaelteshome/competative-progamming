@@ -1,4 +1,4 @@
-title = "Diagonal Traverse"
+title = "2"
 
 arr = title.split(" ")
 res = ""
