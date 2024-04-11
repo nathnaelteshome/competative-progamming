@@ -1,25 +1,23 @@
-from typing import List
+def findOvertakingcar(n, entering, exiting):
+    ans = 0
 
-class Solution:
-    def findIndices(self, nums: List[int], indexDifference: int, valueDifference: int) -> List[int]:
-        idxOfMinValue = 0
-        idxOfMaxVal = 0
-        
-        for i in range(indexDifference, len(nums)):
-            if nums[i - indexDifference] < nums[idxOfMinValue]:
-                idxOfMinValue = i - indexDifference
-            
-            if nums[i - indexDifference] > nums[idxOfMaxVal]:
-                
-                idxOfMaxVal = i - indexDifference
-            
-            if nums[i] - nums[idxOfMinValue] >= valueDifference:
-                return [idxOfMinValue, i]
-            
-            if nums[idxOfMaxVal] - nums[i] >= valueDifference:
-                return [idxOfMaxVal, i]
-        
-        return [-1, -1]
+    exitMap = {}
+    for idx, num in enumerate(exiting):
+        exitMap[num] = idx
 
-soln = Solution()
-print(soln.findIndices(nums = [5,1,4,1], indexDifference = 2, valueDifference = 4))
+    overTaken = exitMap[entering[0]]
+    print(exitMap)
+
+    for idx in range(1 ,n):
+        if entering[idx] + overTaken > exitMap[entering[idx]]:
+            ans += 1
+        overTaken = max(overTaken, exitMap[entering[idx]] - idx)
+
+    return ans
+    
+n = 5
+entering = [3,5,2,1,4]
+exiting = [4,3,2,5,1]
+
+
+print(findOvertakingcar(n, entering, exiting))
