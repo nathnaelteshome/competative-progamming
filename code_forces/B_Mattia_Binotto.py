@@ -2,14 +2,17 @@ n = int(input())
 arr = [int(x) for x in input().split()]
 arr.sort()
 
-stack = [[arr[0], 0]] # [[num, queueTime]]
-satisfied = len(arr)
+prefix_sum = [0] * n
+prefix_sum[0] = arr[0]
+for i in range(1, n):
+    prefix_sum[i] = prefix_sum[i-1] + arr[i]
 
-for num in arr[1:]:
-    #append to stack with [num, queueTime]
-    stack.append([num, stack[-1][1] + stack[-1][0]])
-    if num < stack[-1][1]:
+satisfied = n
+
+for i in range(1, n):
+    if arr[i] < prefix_sum[i-1]:
         satisfied -= 1
 
-print(satisfied)
+print(satisfied)  # Fix: Add parentheses to the print statement
+
 

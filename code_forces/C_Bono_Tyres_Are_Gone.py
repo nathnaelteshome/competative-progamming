@@ -7,8 +7,9 @@ for _ in range(2*n):
     if command[0][0] == "a":
         stack.append(int(command[1]))
     else:
-        if stack and stack != sorted(stack, reverse=True):
-            stack.sort(reverse=True)
+        sortedStack = sorted(stack, reverse=True)
+        if stack and stack != sortedStack:
+            stack = sortedStack
             rearrange += 1
         stack.pop()
 

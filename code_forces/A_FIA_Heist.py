@@ -1,18 +1,20 @@
+import string
+ 
+ 
 s = str(input())
+ 
 stack = []
-idx = 0
 sList = [str(x) for x in s]
-# print(ans)
-
-while idx < len(sList):
-    if sList[idx].isalpha() or sList[idx] in ".,?" or sList[idx] == " ":
-        stack.append(sList[idx])
-
-    elif stack and sList[idx] == "<":
+# print(sList)
+ 
+for char in sList:
+    if stack and char == "-":
         stack.pop()
-    idx += 1
+ 
+    elif char.isalpha() or char in "!#$%&()*+,' ./:;=>?@[\]^_`{|}~" or char in '"' or char in string.whitespace:
+        stack.append(char)
+ 
+ 
+# print(stack)
     
 print("".join(stack))
-
-    
-        
