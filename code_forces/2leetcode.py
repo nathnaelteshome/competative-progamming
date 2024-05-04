@@ -4,16 +4,16 @@ from typing import List, Optional
 
 
 class Solution:
-    def isPowerOfThree(self, n: int) -> bool:
-        if n <= 0:
-            return False
-        if n % 3 != 0:
-            return n == 1 # checks if last recurssion has a value 1
-        else:
-            return self.isPowerOfThree(n/3)
+    def myPow(self, x: float, n: int) -> float:
+        # if n is negative:
+        if n == 0:
+            return 1
+        if n < 0:
+            n = abs(n)
+            negative = True  
+        else: 
+            negative = False
+        return self.myPow(x, abs(n - 1)) * x if not negative else 1 / (self.myPow(x, abs(n - 1)) * x)
 
 soln = Solution()
 
-print(soln.isPowerOfThree(27)) # True
-print(soln.isPowerOfThree(0)) # False
-print(soln.isPowerOfThree(45)) # False
