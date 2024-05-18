@@ -2,7 +2,7 @@ n = int(input())
 stack = []
 rearrange = 0
 
-for _ in range(2*n):
+for _ in range(2 * n):
     command = input().split()
     if command[0][0] == "a":
         stack.append(int(command[1]))
@@ -14,4 +14,3 @@ for _ in range(2*n):
         stack.pop()
 
 print(rearrange)
-

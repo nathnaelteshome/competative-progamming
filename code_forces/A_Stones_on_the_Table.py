@@ -1,11 +1,12 @@
-input()
-stones = input()
-count = 0
-previous_stone = None
+no_of_stones = int(input())
+# stones = input() #"RRG"
+stones_str = str(input())
+stones = [str(x) for x in stones_str] #['R', 'R', 'G']
+ans = 0
 
-for stone in stones:
-    if previous_stone == stone:
-        count += 1
-    previous_stone = stone
+for idx, val in enumerate(stones[1:]): #stones = ['R', 'G"]
+    if val == stones[idx]:
+        ans += 1
 
-print(count)
+print(ans)
+
