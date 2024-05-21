@@ -1,33 +1,19 @@
-t = int(input())
-
-for _ in range(t):
+for _ in range(int(input())):
     n = int(input())
-    candies = [int(x) for x in input().split()]  # [1, 2, 3, 4, 5]
-    prefix_sum = [0] * (n + 1)
-    suffix_sum = [0] * (n + 1)
+    num = list(map(int,input().split()))
+    l , r = -1,n
+    s , t = 0,0
+    r = 0
+    while l-r:
 
-    for idx in range(n):
-        prefix_sum[idx + 1] = candies[idx] + prefix_sum[idx]  # [0., 3, 6, 10, 15]
-        suffix_sum[n - idx - 1] = (
-            candies[n - idx - 1] + suffix_sum[n - idx]
-        )  # [15, 14 12, 9, 5, 0]
-
-    suffix_sum[::-1]
-    prefix_sum = prefix_sum[1:]
-    suffix_sum = suffix_sum[:n]
-
-    left = 0
-    right = n - 1
-    ans = 0
-
-    while left < right:
-        if prefix_sum[left] == suffix_sum[right]:
-            ans = (left + 1) + (n - right)
-            left += 1
-            right -= 1
-        elif prefix_sum[left] < suffix_sum[right]:
-            left += 1
+        if s == t:
+            r = (l+1) + (n-r)
+            l += 1
+            s += num[l]
+        elif s < t:
+            l += 1
+            s += num[l]
         else:
-            right -= 1
-
-    print(ans)
+            r-=1
+            t += num[r]
+    print(r)
