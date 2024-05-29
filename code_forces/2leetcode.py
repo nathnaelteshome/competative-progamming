@@ -3,16 +3,38 @@ from collections import defaultdict, deque
 from typing import List, Optional
 
 
-class Solution:
-    def toh(self, N, fromm, to, aux):
-        # Your code here
-        if N == 0:
-            return 0
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-        self.toh(N - 1, fromm, aux, to)
-        print("move disk", N, "from rod", fromm, "to rod", to)
-        self.toh(N - 1, aux, to, fromm)
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        def helper(node, lower=float("-inf"), upper=float("inf")):
+            if not node:
+                return True
+
+            if lower >= node.val or node.val >= upper:
+                return False
+
+            else:
+                return helper(node.left, lower, node.val) and helper(
+                    node.right, node.val, upper
+                )
+
+        return helper(root)
+
+
+root = TreeNode(5)
+
+root.left = TreeNode(4)
+root.right = TreeNode(6)
+root.right.left = TreeNode(3)
+root.right.right = TreeNode(7)
 
 
 soln = Solution()
-print(soln.toh(4, 1, 3, 2))
+
+print(soln.isValidBST(root))
