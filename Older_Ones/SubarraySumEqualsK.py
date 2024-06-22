@@ -11,12 +11,12 @@ class Solution:
         for num in nums:
             prefix_sum = prefix_sum + num
 
-            if prefix_sum-k in d:
-                result = result + d[prefix_sum-k]
+            if prefix_sum - k in d:
+                result += d[prefix_sum - k]
 
             if prefix_sum not in d:
                 d[prefix_sum] = 1
             else:
-                d[prefix_sum] = d[prefix_sum]+1
+                d[prefix_sum] = d[prefix_sum] + 1
 
         return result
