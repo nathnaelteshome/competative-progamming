@@ -44,7 +44,7 @@ def findPairs(n):
 
     for idx, num in enumerate(numbers):
         if num in set_of_numbers:
-            for i in range(num * num, n, num):
+            for i in range(num * num, n, num): 
                 set_of_numbers.discard(i)
 
     return list(set_of_numbers)
