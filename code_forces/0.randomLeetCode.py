@@ -1,31 +1,50 @@
+from collections import defaultdict, deque
+from typing import List
+
+
 class Solution:
-    def isAdditiveNumber(self, num: str) -> bool:
-        stack = []
+    def numBusesToDestination(
+        self, routes: List[List[int]], source: int, target: int
+    ) -> int:
+        graph = defaultdict(list)
 
-        def backTrack(idx):
-            # if stack has 3 numbers in it and they add up to give the last
-            if len(stack) > 2 and not stack[-1] == stack[-2] + stack[-3]:
-                return
+        for bus, route in enumerate(routes):
+            for stop in route:
+                graph[stop].append(bus)
 
-            # base case if we reach the end of num and all is good
-            if idx == len(num) and len(stack) > 2:
-                return True
+        # print(graph)
 
-            for i in range(idx, len(num)):
-                # section
-                section = num[idx : i + 1]
+        if source == target:
+            return 0
 
-                # checking is section doesnt have a leading 0
-                if len(section) > 1 and section[0] == "0":
-                    continue
+        queue = deque([source])
+        buses_taken = set()
+        visited = set()
+        level = 0
 
-                stack.append(int(section))
-                if backTrack(i + 1):
-                    return True
-                stack.pop()
+        while queue:
+            level += 1
 
-        return backTrack(0)
+            for _ in range(len(queue)):
+                curr = queue.popleft()
+                for bus in graph[curr]:
+                    if bus in buses_taken:
+                        continue
+
+                    buses_taken.add(bus)
+
+                    for next_stop in routes[bus]:
+                        if next_stop in visited:
+                            continue
+
+                        if next_stop == target:
+                            return level
+
+                        queue.append(next_stop)
+                        visited.add(next_stop)
+
+        return -1
 
 
 soln = Solution()
-print(soln.isAdditiveNumber("112358"))
+print(soln.numBusesToDestination([[1, 2, 7], [3, 6, 7]], 1, 6))
