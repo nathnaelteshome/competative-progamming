@@ -2,8 +2,6 @@ from collections import defaultdict, deque
 
 
 n = int(input())
-# n = 4
-# graph = list()
 
 graph = [set() for _ in range(n + 1)]
 
