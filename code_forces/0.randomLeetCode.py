@@ -3,48 +3,37 @@ from typing import List
 
 
 class Solution:
-    def numBusesToDestination(
-        self, routes: List[List[int]], source: int, target: int
-    ) -> int:
+    def maximumDetonation(self, bombs: List[List[int]]) -> int:
         graph = defaultdict(list)
 
-        for bus, route in enumerate(routes):
-            for stop in route:
-                graph[stop].append(bus)
+        for i in range(len(bombs)):
+            for j in range(i + 1, len(bombs)):
+                x1, y1, r1 = bombs[i]
+                x2, y2, r2 = bombs[j]
+                d = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
 
-        # print(graph)
+                if d <= r1:
+                    graph[i].append(j)
+                if d <= r2:
+                    graph[j].append(i)
 
-        if source == target:
-            return 0
+        print(graph)
+        # defaultdict(<class 'list'>, {0: [1, 2], 2: [1, 3], 3: [1, 2, 4], 4: [2, 3]})
 
-        queue = deque([source])
-        buses_taken = set()
-        visited = set()
-        level = 0
+        def dfs(idx, visited):
+            if idx in visited:
+                return 0
 
-        while queue:
-            level += 1
+            visited.add(idx)
+            for neigh in graph[idx]:
+                dfs(neigh, visited)
+            return len(visited)
 
-            for _ in range(len(queue)):
-                curr = queue.popleft()
-                for bus in graph[curr]:
-                    if bus in buses_taken:
-                        continue
-
-                    buses_taken.add(bus)
-
-                    for next_stop in routes[bus]:
-                        if next_stop in visited:
-                            continue
-
-                        if next_stop == target:
-                            return level
-
-                        queue.append(next_stop)
-                        visited.add(next_stop)
-
-        return -1
+        res = 0
+        for i in range(len(bombs)):
+            res = max(res, dfs(i, set()))
+        return res
 
 
 soln = Solution()
-print(soln.numBusesToDestination([[1, 2, 7], [3, 6, 7]], 1, 6))
+print(soln.maximumDetonation([[1, 2, 3], [2, 3, 1], [3, 4, 2], [4, 5, 3], [5, 6, 4]]))
