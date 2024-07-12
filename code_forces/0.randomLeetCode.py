@@ -1,39 +1,37 @@
-from collections import defaultdict, deque
-from typing import List
+# User function Template for python3
 
 
 class Solution:
-    def maximumDetonation(self, bombs: List[List[int]]) -> int:
-        graph = defaultdict(list)
+    # Heapify function to maintain heap property.
+    def heapify(self, arr, n, i):
+        largest = i
+        left = 2 * i + 1
+        right = 2 * i + 2
 
-        for i in range(len(bombs)):
-            for j in range(i + 1, len(bombs)):
-                x1, y1, r1 = bombs[i]
-                x2, y2, r2 = bombs[j]
-                d = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
+        if left < n and arr[i] < arr[left]:
+            largest = left
+        if right < n and arr[largest] < arr[right]:
+            largest = right
 
-                if d <= r1:
-                    graph[i].append(j)
-                if d <= r2:
-                    graph[j].append(i)
+        if largest != i:
+            arr[i], arr[largest] = arr[largest], arr[i]
+            self.heapify(arr, n, largest)
+            # code here
 
-        print(graph)
-        # defaultdict(<class 'list'>, {0: [1, 2], 2: [1, 3], 3: [1, 2, 4], 4: [2, 3]})
+    # Function to build a Heap from array.
+    def buildHeap(self, arr, n):
+        for i in range(n, -1, -1):
+            self.heapify(arr, n, i)
+        # code here
 
-        def dfs(idx, visited):
-            if idx in visited:
-                return 0
+    # Function to sort an array using Heap Sort.
+    def HeapSort(self, arr, n):
+        self.buildHeap(arr, n)
 
-            visited.add(idx)
-            for neigh in graph[idx]:
-                dfs(neigh, visited)
-            return len(visited)
-
-        res = 0
-        for i in range(len(bombs)):
-            res = max(res, dfs(i, set()))
-        return res
+        for i in range(n - 1, 0, -1):
+            arr[i], arr[0] = arr[0], arr[i]
+            self.heapify(arr, i, 0)
 
 
 soln = Solution()
-print(soln.maximumDetonation([[1, 2, 3], [2, 3, 1], [3, 4, 2], [4, 5, 3], [5, 6, 4]]))
+print(soln.HeapSort([4, 1, 3, 9, 7], 5))
