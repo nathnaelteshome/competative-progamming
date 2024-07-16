@@ -1,24 +1,32 @@
-import heapq
-
+from heapq import *
 
 n = int(input())
-ans = []
-q = []
+logs = []
+finalLogs = []
+heap = []
 
-for i in range(n):
-    word = input()
-    order, val = word.split()
+for _ in range(n):
+    logs.append(input().split())
 
-    if order == "insert":
-        heapq.heappush(q, int(val))
-    elif order == "getMin":
-        while q and q[0] < int(val):
-            heapq.heappop(q)
-            ans.append("removeMin")
-        if not q or q[0] > val:
-            heapq.heappush(q, val)
-            ans.append("insert " + str(val))
-        ans.append("getMin " + str(val))
+for log in logs:
+    if log[0] == "insert":
+        heappush(heap, int(log[1]))
+    elif log[0] == "removeMin":
+        if heap:
+            heappop(heap)
+        else:
+            finalLogs.append(["insert", 1])
+    else:
+        while heap and heap[0] < int(log[1]):
+            heappop(heap)
+            finalLogs.append(["removeMin"])
 
-print(len(ans))
-print("\n".join(ans))
+        if not heap or heap[0] != int(log[1]):
+            heappush(heap, int(log[1]))
+            finalLogs.append(["insert", int(log[1])])
+
+    finalLogs.append(log)
+
+print(len(finalLogs))
+for log in finalLogs:
+    print(*log)
