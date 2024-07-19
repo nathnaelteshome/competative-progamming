@@ -1,37 +1,29 @@
 # User function Template for python3
 
+# Input: heroes = [1,4,2], monsters = [1,1,5,2,3], coins = [2,3,4,5,6]
+from bisect import bisect_right
+from itertools import accumulate
+from typing import List
+
+
+heroes = [1, 4, 2]
+monsters = [1, 1, 5, 2, 3]
+coins = [2, 3, 4, 5, 6]
+
 
 class Solution:
-    # Heapify function to maintain heap property.
-    def heapify(self, arr, n, i):
-        largest = i
-        left = 2 * i + 1
-        right = 2 * i + 2
-
-        if left < n and arr[i] < arr[left]:
-            largest = left
-        if right < n and arr[largest] < arr[right]:
-            largest = right
-
-        if largest != i:
-            arr[i], arr[largest] = arr[largest], arr[i]
-            self.heapify(arr, n, largest)
-            # code here
-
-    # Function to build a Heap from array.
-    def buildHeap(self, arr, n):
-        for i in range(n, -1, -1):
-            self.heapify(arr, n, i)
-        # code here
-
-    # Function to sort an array using Heap Sort.
-    def HeapSort(self, arr, n):
-        self.buildHeap(arr, n)
-
-        for i in range(n - 1, 0, -1):
-            arr[i], arr[0] = arr[0], arr[i]
-            self.heapify(arr, i, 0)
+    def maximumCoins(
+        self, heroes: List[int], monsters: List[int], coins: List[int]
+    ) -> List[int]:
+        m = len(monsters)
+        idx = sorted(range(m), key=lambda i: monsters[i])
+        s = list(accumulate((coins[i] for i in idx), initial=0))
+        ans = []
+        for h in heroes:
+            i = bisect_right(idx, h, key=lambda i: monsters[i])
+            ans.append(s[i])
+        return ans
 
 
 soln = Solution()
-print(soln.HeapSort([4, 1, 3, 9, 7], 5))
+print(soln.maximumCoins(heroes, monsters, coins))  # Output: [2, 5, 10]
