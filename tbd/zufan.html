@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>CDI24 Login</title>
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="flex flex-row bg-gray-100">
+      <!-- Header Section -->
+      <div class="flex items-center mb-80 shadow-sm">
+        <button class="text-orange-500 pb-64 pl-10 hover:text-orange-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5 8.25 12l7.5-7.5"
+            />
+          </svg>
+        </button>
+        <h1 class="mb-64 ml-9 mr-7 text-lg font-medium text-blue-950">Home</h1>
+      </div>
+
+      <div class="bg-blue-400 w-1/2 flex flex-col pt-32 items-center">
+        <!-- Logo and Login Heading Section -->
+        <div class="max-w-8 text-center bg-blue-400">
+          <!-- Logo -->
+          <p class="text-3xl font-bold text-blue-950">
+            CDI<span class="text-3xl font-extrabold text-orange-500">24</span>
+          </p>
+          <!-- Login Text -->
+          <h2 class="text-2xl font-semibold text-gray-700 mt-11">Login</h2>
+          <!-- Horizontal Line -->
+          <hr class="border-gray-300 my-4 w-50" />
+        </div>
+
+        <!-- Content Section -->
+        <div
+          class="max-w-4xl mt-12 mb-2 p-10 pl-10 bg-white rounded-2xl shadow-md"
+        >
+          <!-- Verification Container -->
+          <div class="flex justify-center text-blue-950">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+              />
+            </svg>
+          </div>
+
+          <!-- Loading Bar -->
+          <div class="w-full h-1.5 mb-3 rounded-full bg-gray-200">
+            <div class="w-1.5 h-1.5 rounded-full bg-blue-950"></div>
+          </div>
+
+          <!-- Message -->
+          <p class="text-left text-sm text-gray-500">
+            Sending verification code to
+            <span class="font-medium">+251911000000</span>
+          </p>
+        </div>
+
+        <!-- Sign Up Link (Below the Email Container) -->
+        <div class="w-full max-w-sm text-center">
+          <p class="text-sm text-gray-500">
+            Don't have an account?
+            <a
+              href="#"
+              class="text-orange-500 hover:text-orange-600 font-medium"
+              >Sign up here</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- Image Section -->
+      <div class="flex-1 flex justify-end items-center">
+        <img
+          src="https://via.placeholder.com/600x800"
+          alt="Placeholder Image"
+          class="h-full object-cover object-right"
+        />
+      </div>
+    </div>
+  </body>
+</html>
