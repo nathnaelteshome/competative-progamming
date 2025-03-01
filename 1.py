@@ -1,4 +1,5 @@
 def get_security_code(code: str, k: int) -> str:
+    chars = list(code)
     n = len(chars)
 
     left = 0
@@ -42,6 +43,6 @@ code2 = "0010"
 k2 = 5
 print(get_security_code(code2, k2))  # Output: "1000"
 
-code3 = "1111"
+code3 = "111"
 k3 = 2
 print(get_security_code(code3, k3))  # Output: "111"

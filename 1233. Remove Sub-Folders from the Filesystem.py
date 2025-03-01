@@ -14,9 +14,9 @@ class Solution:
             # check if the current folder starts with the last added folder path
             if not folder[i].startswith(lastFolder):
                 result.append(folder[i])
-        
+
         return result
 
-soln = Solution()
-soln.removeSubfolders(    folder = ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"])
 
+soln = Solution()
+soln.removeSubfolders(folder=["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"])
