@@ -1,7 +1,9 @@
+from typing import List
+
+
 class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        stack = []
 
         for i in range(1, n):
             if nums[i - 1] == nums[i]:
@@ -10,10 +12,12 @@ class Solution:
 
         left = 0
         for right in range(n):
-            while left < n and nums[left]:
-                left += 1
-            if nums[right] and left < n:
+            if nums[right]:
                 nums[left], nums[right] = nums[right], nums[left]
                 left += 1
 
         return nums
+
+
+soln = Solution()
+print(soln.applyOperations([1, 1, 2, 2]))  # [4, 0, 0, 0]
