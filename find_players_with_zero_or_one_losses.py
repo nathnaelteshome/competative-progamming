@@ -1,7 +1,10 @@
+from typing import DefaultDict, List
+
+
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
         winner, loser = [], []
-        dic = defaultdict()
+        dic = DefaultDict()
 
         for win, los in matches:
             if win not in dic:
@@ -21,7 +24,5 @@ class Solution:
                 loser.append(key)
         winner.sort()
         loser.sort()
-        
+
         return [winner, loser]
-                
-            
