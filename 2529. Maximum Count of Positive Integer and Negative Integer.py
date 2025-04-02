@@ -9,7 +9,7 @@ class Solution:
         while left + 1 < right:
             mid = (right + left) // 2
             print("mis", mid)
-
+ 
             if nums[mid] > 0:
                 right = mid
             else: 
